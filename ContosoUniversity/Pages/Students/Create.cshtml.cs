@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ContosoUniversity.Models;
 
-namespace ContosoUniversity.Pages
+namespace ContosoUniversity.Pages.Students
 {
     public class CreateModel : PageModel
     {

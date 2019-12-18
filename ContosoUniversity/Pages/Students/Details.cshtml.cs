@@ -7,18 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Models;
 
-namespace ContosoUniversity.Pages
+namespace ContosoUniversity.Pages.Students
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly ContosoUniversity.Models.SchoolContext _context;
 
-        public DeleteModel(ContosoUniversity.Models.SchoolContext context)
+        public DetailsModel(ContosoUniversity.Models.SchoolContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
         public Student Student { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -35,24 +34,6 @@ namespace ContosoUniversity.Pages
                 return NotFound();
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Student = await _context.Student.FindAsync(id);
-
-            if (Student != null)
-            {
-                _context.Student.Remove(Student);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }
