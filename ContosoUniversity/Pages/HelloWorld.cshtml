@@ -1,0 +1,25 @@
+﻿@page
+@model ContosoUniversity.Pages.HelloWorldModel
+@{
+    ViewData["Title"] = "HelloWorld";
+}
+
+<header class="jumbotron">
+    <h2>ASP.NET Core Razor Pages - Hello</h2>
+    <h3>Hayden Fowler</h3>
+    <p>
+        This page will ask for the name of the user
+        and it will say hello
+    </p>
+</header>
+<main>
+    <form method="Post">
+        <label>Please your name:</label>
+        <input type="text" asp-for="UserName" placeholder="Your Name" />
+        <input type="submit" />
+    </form>
+    <p>
+        Hello @Model.UserName
+    </p>
+</main>
+
